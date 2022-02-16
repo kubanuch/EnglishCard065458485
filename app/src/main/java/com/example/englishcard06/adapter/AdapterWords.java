@@ -15,6 +15,7 @@ import java.util.List;
 
 
 public class AdapterWords extends RecyclerView.Adapter<AdapterWords.HomeWords> {
+
     List<Hits> list = new ArrayList<>();
 
 
@@ -35,8 +36,9 @@ public class AdapterWords extends RecyclerView.Adapter<AdapterWords.HomeWords> {
         return list.size();
     }
 
-    public void setList(ArrayList<Hits> list) {
+    public void setList(List<Hits> list) {
         this.list = list;
+        notifyDataSetChanged();
     }
 
     public class HomeWords extends RecyclerView.ViewHolder {
