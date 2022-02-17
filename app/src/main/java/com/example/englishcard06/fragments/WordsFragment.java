@@ -1,6 +1,8 @@
 package com.example.englishcard06.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -54,17 +56,22 @@ public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                binding.progressBar.setVisibility(View.VISIBLE);
-                viewModel.getImages(binding.etText.getText().toString()).observe(getViewLifecycleOwner(), hits -> {
-                    if (hits != null) {
-                        binding.progressBar.setVisibility(View.GONE);
-                        binding.recyclerview.setAdapter(adapterWords);
-                        adapterWords.setList(hits);
+                final Handler handler = new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+//                        Do something after 100ms
+                        binding.progressBar.setVisibility(View.VISIBLE);
+                        viewModel.getImages(binding.etText.getText().toString()).observe(getViewLifecycleOwner(), hits -> {
+                            if (hits != null) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                binding.recyclerview.setAdapter(adapterWords);
+                                adapterWords.setList(hits);
 
-
+                            }
+                        });
                     }
-                });
-
+                }, 3000);
 
             }
         });
