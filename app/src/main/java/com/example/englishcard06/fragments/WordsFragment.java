@@ -2,15 +2,14 @@ package com.example.englishcard06.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.englishcard06.adapter.AdapterWords;
 import com.example.englishcard06.base.BaseFragment;
@@ -20,7 +19,8 @@ import com.example.englishcard06.viewmodel.PixaBayViewModel;
 public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
 
     PixaBayViewModel viewModel;
-    private final AdapterWords adapterWords = new AdapterWords();
+    private AdapterWords adapterWords;
+    Handler handler = new Handler();
 
     @Override
     public FragmentWordsBinding bind() {
@@ -38,40 +38,46 @@ public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
 
 
     private void initAdapter() {
-        binding.recyclerview.setLayoutManager(new LinearLayoutManager(requireContext()));
-
+        adapterWords = new AdapterWords();
     }
 
     private void getImages() {
         binding.etText.addTextChangedListener(new TextWatcher() {
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
 
+
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                if (handler != null) {
+                    handler = null;
+                }
             }
+
 
             @Override
             public void afterTextChanged(Editable editable) {
-                final Handler handler = new Handler(Looper.getMainLooper());
+                Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-//                        Do something after 100ms
+                        String text = binding.etText.getText().toString();
                         binding.progressBar.setVisibility(View.VISIBLE);
-                        viewModel.getImages(binding.etText.getText().toString()).observe(getViewLifecycleOwner(), hits -> {
+                        viewModel.getImages(text).observe(getViewLifecycleOwner(), hits -> {
                             if (hits != null) {
                                 binding.progressBar.setVisibility(View.GONE);
-                                binding.recyclerview.setAdapter(adapterWords);
                                 adapterWords.setList(hits);
+                                binding.recyclerview.setAdapter(adapterWords);
 
                             }
                         });
                     }
-                }, 3000);
+                }, 5000);
+                Log.e("ololo", "" + 2000);
+
 
             }
         });
