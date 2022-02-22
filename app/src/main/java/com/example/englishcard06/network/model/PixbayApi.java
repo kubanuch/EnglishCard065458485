@@ -1,4 +1,4 @@
-package com.example.englishcard06.network;
+package com.example.englishcard06.network.model;
 
 import com.example.englishcard06.network.model.PixabayResponse;
 

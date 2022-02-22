@@ -9,13 +9,19 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
+import com.example.englishcard06.R;
 import com.example.englishcard06.adapter.AdapterWords;
 import com.example.englishcard06.base.BaseFragment;
 import com.example.englishcard06.databinding.FragmentWordsBinding;
 import com.example.englishcard06.viewmodel.PixaBayViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
 
     PixaBayViewModel viewModel;
@@ -30,7 +36,7 @@ public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = ViewModelProviders.of(requireParentFragment()).get(PixaBayViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(PixaBayViewModel.class);
         getImages();
         initAdapter();
 
@@ -76,12 +82,10 @@ public class WordsFragment extends BaseFragment<FragmentWordsBinding> {
                         });
                     }
                 }, 5000);
-                Log.e("ololo", "" + 2000);
 
 
             }
         });
-
     }
 }
 
