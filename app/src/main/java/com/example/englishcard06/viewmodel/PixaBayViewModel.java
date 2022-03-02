@@ -12,17 +12,18 @@ import java.util.List;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
-import retrofit2.http.Query;
+
 
 @HiltViewModel
 public class PixaBayViewModel extends ViewModel {
-     MutableLiveData<List<Hits>> hitsMutableLiveData = new MutableLiveData<>();
-    PixaBayRepository repository;
 
+    MutableLiveData<List<Hits>> hitsMutableLiveData = new MutableLiveData<>();
+    PixaBayRepository repository;
     Preferences preferences;
 
+
     @Inject
-    public void PixabayViewModel(PixaBayRepository repository, Preferences preferencesHelper) {
+    public PixaBayViewModel(PixaBayRepository repository, Preferences preferencesHelper) {
         this.repository = repository;
         this.preferences = preferencesHelper;
     }
@@ -33,6 +34,7 @@ public class PixaBayViewModel extends ViewModel {
         hitsMutableLiveData = repository.listImages;
         return hitsMutableLiveData;
     }
+
 
     public boolean getBoolean() {
         return preferences.getBoolean();

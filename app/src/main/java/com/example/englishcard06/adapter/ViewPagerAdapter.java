@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.englishcard06.databinding.FragmentBoardBinding;
 import com.example.englishcard06.network.model.ViewPagerModel;
-import com.example.englishcard06.onboard.ClickListener;
+import com.example.englishcard06.utils.interfaces.ClickListener;
 
 import java.util.ArrayList;
 

@@ -4,9 +4,9 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.englishcard06.network.model.PixbayApi;
 import com.example.englishcard06.network.model.Hits;
 import com.example.englishcard06.network.model.PixabayResponse;
+import com.example.englishcard06.network.model.PixbayApi;
 
 import java.util.List;
 
@@ -17,9 +17,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PixaBayRepository {
+
     PixbayApi api;
     public MutableLiveData<List<Hits>> listImages = new MutableLiveData<>();
-@Inject
+
+    @Inject
     public PixaBayRepository(PixbayApi api) {
         this.api = api;
     }

@@ -3,21 +3,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/onBoardFragment">
+    app:startDestination="@id/categoryFragment">
+
 
     <fragment
-        android:id="@+id/wordsFragment"
-        android:name="com.example.englishcard06.fragments.WordsFragment"
+        android:id="@+id/categoryFragment"
+        android:name="com.example.englishcard06.ui.fragments.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_wordsFragment"
+            app:destination="@id/wordsFragment"
+            android:name="fromCategoryToWords"
+            app:argType="string"
+
+            >
+        </action>
+
+    </fragment>
     <fragment
-        android:id="@+id/CategoryFragment"
-        android:name="com.example.englishcard06.fragments.CategoryFragment"
+        android:id="@+id/wordsFragment"
+        android:name="com.example.englishcard06.ui.fragments.WordsFragment"
         android:label="fragment_words"
-        tools:layout="@layout/fragment_words" />
+        tools:layout="@layout/fragment_words">
+        <argument
+            android:name="fromCategoryToWords"
+            app:argType="string" />
+        <argument
+            android:name="fromDialogToWords"
+            app:argType="integer" />
+
+    </fragment>
     <fragment
-        android:id="@+id/onBoardFragment"
+        android:id="@+id/mainBoardFragment"
         android:name="com.example.englishcard06.onboard.OnBoardFragment"
-        android:label="fragment_on_board"
+        android:label="fragment_main_board"
         tools:layout="@layout/fragment_on_board" />
+    <dialog
+        android:id="@+id/createWordsBottomSheetFragment"
+        android:name="com.example.englishcard06.ui.fragments.CreateWordsBottomSheetFragment"
+        android:label="fragment_create_words_bottom_sheet"
+        tools:layout="@layout/fragment_create_words_bottom_sheet" >
+        <action
+            android:id="@+id/action_createWordsBottomSheetFragment_to_wordsFragment"
+            app:destination="@id/wordsFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/createCategoryBottomSheetFragment"
+        android:name="com.example.englishcard06.ui.fragments.CreateCategoryBottomSheetFragment"
+        android:label="fragment_create_category_bottom_sheet"
+        tools:layout="@layout/fragment_create_category_bottom_sheet" />
 </navigation>
