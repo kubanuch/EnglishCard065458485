@@ -1,4 +1,4 @@
-package com.example.englishcard06.ui;
+package com.example.englishcard06.ui.activity;
 
 import android.os.Bundle;
 

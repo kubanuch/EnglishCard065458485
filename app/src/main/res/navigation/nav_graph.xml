@@ -8,22 +8,22 @@
 
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="com.example.englishcard06.ui.fragments.CategoryFragment"
+        android:name="com.example.englishcard06.ui.fragments.category.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category">
-        <action
-            android:id="@+id/action_categoryFragment_to_wordsFragment"
-            app:destination="@id/wordsFragment"
-            android:name="fromCategoryToWords"
-            app:argType="string"
+<action
+    android:id="@+id/action_categoryFragment_to_wordsFragment"
+    android:name="fromCategoryToWords"
+    app:argType="string"
+    app:destination="@id/wordsFragment">
 
-            >
-        </action>
+
+</action>
 
     </fragment>
     <fragment
         android:id="@+id/wordsFragment"
-        android:name="com.example.englishcard06.ui.fragments.WordsFragment"
+        android:name="com.example.englishcard06.ui.fragments.words.WordsFragment"
         android:label="fragment_words"
         tools:layout="@layout/fragment_words">
         <argument
@@ -36,12 +36,12 @@
     </fragment>
     <fragment
         android:id="@+id/mainBoardFragment"
-        android:name="com.example.englishcard06.onboard.OnBoardFragment"
+        android:name="com.example.englishcard06.ui.fragments.onbord.OnBoardFragment"
         android:label="fragment_main_board"
         tools:layout="@layout/fragment_on_board" />
     <dialog
         android:id="@+id/createWordsBottomSheetFragment"
-        android:name="com.example.englishcard06.ui.fragments.CreateWordsBottomSheetFragment"
+        android:name="com.example.englishcard06.ui.fragments.words.CreateWordsBottomSheetFragment"
         android:label="fragment_create_words_bottom_sheet"
         tools:layout="@layout/fragment_create_words_bottom_sheet" >
         <action
@@ -50,7 +50,7 @@
     </dialog>
     <dialog
         android:id="@+id/createCategoryBottomSheetFragment"
-        android:name="com.example.englishcard06.ui.fragments.CreateCategoryBottomSheetFragment"
+        android:name="com.example.englishcard06.ui.fragments.category.CreateCategoryBottomSheetFragment"
         android:label="fragment_create_category_bottom_sheet"
         tools:layout="@layout/fragment_create_category_bottom_sheet" />
 </navigation>

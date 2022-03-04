@@ -1,4 +1,4 @@
-package com.example.englishcard06.adapter;
+package com.example.englishcard06.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

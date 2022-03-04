@@ -1,4 +1,4 @@
-package com.example.englishcard06.client;
+package com.example.englishcard06.viewmodel.client;
 
 import com.example.englishcard06.R;
 import com.example.englishcard06.network.model.ViewPagerModel;

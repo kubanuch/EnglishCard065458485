@@ -1,4 +1,4 @@
-package com.example.englishcard06.base;
+package com.example.englishcard06.ui.fragments.base;
 
 
 import android.os.Bundle;

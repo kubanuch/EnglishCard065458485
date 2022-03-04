@@ -1,4 +1,4 @@
-package com.example.englishcard06.onboard;
+package com.example.englishcard06.ui.fragments.onbord;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +10,9 @@ import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.englishcard06.R;
-import com.example.englishcard06.adapter.ViewPagerAdapter;
-import com.example.englishcard06.base.BaseFragment;
-import com.example.englishcard06.client.ViewPagerClient;
+import com.example.englishcard06.ui.adapter.ViewPagerAdapter;
+import com.example.englishcard06.ui.fragments.base.BaseFragment;
+import com.example.englishcard06.viewmodel.client.ViewPagerClient;
 import com.example.englishcard06.databinding.FragmentOnBoardBinding;
 import com.example.englishcard06.network.model.ViewPagerModel;
 import com.example.englishcard06.utils.interfaces.ClickListener;

@@ -1,4 +1,4 @@
-package com.example.englishcard06.client.preferences;
+package com.example.englishcard06.viewmodel.client.preferences;
 
 import android.content.SharedPreferences;
 

@@ -1,4 +1,4 @@
-package com.example.englishcard06.adapter;
+package com.example.englishcard06.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +18,11 @@ import java.util.List;
 public class AdapterRecyclerviewImage extends RecyclerView.Adapter<AdapterRecyclerviewImage.AdapterRecyclerviewHolder> {
 
     ItemClickListener itemClickListener;
+    List<Hits> list = new ArrayList<>();
 
-    public void setItemClickListener(ItemClickListener itemClickListener) {
+    public AdapterRecyclerviewImage(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
-
-    List<Hits> list = new ArrayList<>();
 
     @NonNull
     @Override
@@ -41,7 +40,7 @@ public class AdapterRecyclerviewImage extends RecyclerView.Adapter<AdapterRecycl
         return list.size();
     }
 
-    public void setList(List<Hits> list) {
+    public void setData(List<Hits> list) {
         this.list = list;
         notifyDataSetChanged();
     }
@@ -56,13 +55,6 @@ public class AdapterRecyclerviewImage extends RecyclerView.Adapter<AdapterRecycl
 
         public void onBind(Hits model) {
             Glide.with(binding.ivImage).load(model.getmLargeImageURL()).into(binding.ivImage);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    itemClickListener.itemListener(getAdapterPosition());
-
-                }
-            });
 
         }
     }

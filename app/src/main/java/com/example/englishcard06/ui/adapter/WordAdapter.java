@@ -1,4 +1,4 @@
-package com.example.englishcard06.adapter;
+package com.example.englishcard06.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +54,6 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordHolder> {
             binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                 }
             });
 

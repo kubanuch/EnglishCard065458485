@@ -1,4 +1,4 @@
-package com.example.englishcard06.adapter;
+package com.example.englishcard06.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +61,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.listener(getAdapterPosition());
+                    listener.listener(model.getName(), getAdapterPosition());
                 }
             });
         }
